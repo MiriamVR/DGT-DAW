@@ -1,0 +1,516 @@
+﻿<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Aplicación DGT DAW</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+  <style>
+    #menu {
+      width: 25%;
+      float: left;
+    }
+
+    #formularios {
+      margin-top: 3%;
+      margin-left: 3%;
+      width: 72%;
+      float: left;
+    }
+  </style>
+
+</head>
+
+<body>
+
+
+
+  <div id="menu" class="container">
+    <!-- ABRE EL CONTENEDOR DEL MENU PRINCIPAL -->
+
+    <h1>DGT DAW</h1>
+
+    <br>
+    <br>
+
+    <!---------------------------------------------------------------------------------------------------->
+    <!-- Formulario Principal ABRE ----------------------------------------------------------------------->
+    <!---------------------------------------------------------------------------------------------------->
+
+    <form class="form-horizontal" name="formMenuPrincipal">
+      <fieldset>
+
+        <legend>Altas</legend>
+
+        <!-- Button -->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="btnAltaPersona"></label>
+          <div class="col-md-4">
+            <input type="button" id="btnAltaPersona" name="btnAltaPersona" class="btn btn-danger" value="Persona Física"
+              onclick="mostrarAltaPersona()" />
+          </div>
+        </div>
+
+
+      </fieldset>
+
+
+      <fieldset>
+        <legend>Multas</legend>
+
+        <!-- Button -->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="btnRegistrarMulta"></label>
+          <div class="col-md-4">
+            <input type="button" id="btnRegistrarMulta" name="btnRegistrarMulta" class="btn btn-danger"
+              value="Registrar Nueva Multa" onclick="mostrarRegistroMulta();" />
+          </div>
+        </div>
+
+        <!-- Button -->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="btnPagarMulta"></label>
+          <div class="col-md-4">
+            <input type="button" id="btnPagarMulta" name="btnPagarMulta" class="btn btn-danger" value="Pagar Multa"
+              onclick="mostrarPagarMulta();" />
+          </div>
+        </div>
+
+        <!-- Button -->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="btnImprimirMulta"></label>
+          <div class="col-md-4">
+            <input type="button" id="btnImprimirMulta" name="btnImprimirMulta" class="btn btn-danger"
+              value="Imprimir Multa" onclick="mostrarImprimirMulta();" />
+          </div>
+        </div>
+
+      </fieldset>
+
+      <fieldset>
+        <legend>Listados</legend>
+
+        <!-- Button -->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="btnListarSaldoConductor"></label>
+          <div class="col-md-4">
+            <input type="button" id="btnListarSaldoConductor" name="btnListarSaldoConductor" class="btn btn-danger"
+              value="Saldo Conductor" onclick="mostrarListadoSaldoConductor();" />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="btnListarPtosConductor"></label>
+          <div class="col-md-4">
+            <input type="button" id="btnListarPtosConductor" name="btnListarPtosConductor" class="btn btn-danger"
+              value="Puntos Conductor" onclick="mostrarListadoPuntosConductor();" />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="btnListarMultasPorGuardia"></label>
+          <div class="col-md-4">
+            <input type="button" id="btnListarMultasPorGuardia" name="btnListarMultasPorGuardia" class="btn btn-danger"
+              value="Multas Por Guardia" onclick="mostrarListadoMultasPorGuardia();" />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="btnListarMultasPorFecha"></label>
+          <div class="col-md-4">
+            <input type="button" id="btnListarMultasPorFecha" name="btnListarMultasPorFecha" class="btn btn-danger"
+              value="Multas Por Fecha" onclick="mostrarListadoMultasPorFecha();" />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="btnListarConductores"></label>
+          <div class="col-md-4">
+            <input type="button" id="btnListarConductores" name="btnListarConductores" class="btn btn-danger"
+              value="Conductores" onclick="mostrarListadoConductores();" />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="btnListarGuardias"></label>
+          <div class="col-md-4">
+            <input type="button" id="btnListarGuardias" name="btnListarGuardias" class="btn btn-danger"
+              value="Guardias Civiles" onclick="mostrarListadoGuardias();" />
+          </div>
+        </div>
+
+
+      </fieldset>
+
+    </form>
+
+  </div> <!-- ABRE EL CONTENEDOR DEL MENU PRINCIPAL -->
+
+  <!---------------------------------------------------------------------------------------------------->
+  <!-- Formulario Principal CIERRA --------------------------------------------------------------------->
+  <!---------------------------------------------------------------------------------------------------->
+
+  <!---------------------------------------------------------------------------------------------------->
+  <!-- Formulario Alta Conductor ABRE ------------------------------------------------------------------>
+  <!---------------------------------------------------------------------------------------------------->
+
+  <form class="form-horizontal" name="formAltaConductor" id="formularios">
+    <fieldset>
+
+      <!-- Form Name -->
+      <legend>Alta Persona</legend>
+
+      <!-- Text input -->
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="txtNIF">Introduzca su NIF: </label>
+        <div class="col-md-4">
+          <input id="txtNIF" name="txtNIF" type="text" placeholder="" class="form-control input-md">
+
+        </div>
+      </div>
+
+      <!-- Text input -->
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="txtNombre">Introduzca su nombre: </label>
+        <div class="col-md-4">
+          <input id="txtNombre" name="txtNombre" type="text" placeholder="" class="form-control input-md">
+
+        </div>
+      </div>
+
+      <!-- Text input -->
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="txtApellidos">Introduzca sus apellidos: </label>
+        <div class="col-md-4">
+          <input id="txtApellidos" name="txtApellidos" type="text" placeholder="" class="form-control input-md">
+
+        </div>
+      </div>
+
+      <!-- Text input -->
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="txtDireccion">Introduzca su dirección: </label>
+        <div class="col-md-4">
+          <input id="txtDireccion" name="txtDireccion" type="text" placeholder="" class="form-control input-md">
+
+        </div>
+      </div>
+
+      <!-- Text input -->
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="txtCaducidadCarnet">Introduzca la caducidad de su carnet (Conductor):
+        </label>
+        <div class="col-md-4">
+          <input id="txtCaducidadCarnet" name="txtCaducidadCarnet" type="date" placeholder=""
+            class="form-control input-md">
+
+        </div>
+      </div>
+
+      <!-- Text input -->
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="txtPuestoGuardia">Introduzca su puesto (Guardia Civil): </label>
+        <div class="col-md-4">
+          <input id="txtPuestoGuardia" name="txtPuestoGuardia" type="text" placeholder="" class="form-control input-md">
+
+        </div>
+      </div>
+
+
+      <br>
+
+      <!-- Button -->
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="btnAceptarAltaPersona"></label>
+        <div class="col-md-4">
+          <input type="button" id="btnAceptarAltaPersona" name="btnAceptarAltaPersona" class="btn btn-danger"
+            value="Aceptar" onclick="aceptarAltaPersona();" />
+        </div>
+      </div>
+
+    </fieldset>
+  </form>
+
+  <!---------------------------------------------------------------------------------------------------->
+  <!-- Formulario Alta Conductor CIERRA ---------------------------------------------------------------->
+  <!---------------------------------------------------------------------------------------------------->
+
+
+  <!---------------------------------------------------------------------------------------------------->
+  <!-- Formulario Registro Multa ABRE ------------------------------------------------------------------>
+  <!---------------------------------------------------------------------------------------------------->
+
+  <form class="form-horizontal" name="formRegistroMulta" id="formularios">
+    <fieldset>
+
+      <!-- Form Name -->
+      <legend>Registro Multa</legend>
+
+      <!-- Text input-->
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="txtIdMulta">ID Multa: </label>
+        <div class="col-md-4">
+          <input id="txtIdMulta" name="txtIdMulta" type="text" placeholder="" class="form-control input-md">
+
+        </div>
+      </div>
+
+      <!-- Text input-->
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="txtNIFConductor">NIF Conductor: </label>
+        <div class="col-md-4">
+          <input id="txtNIFConductor" name="txtNIFConductor" type="text" placeholder="" class="form-control input-md">
+
+        </div>
+      </div>
+
+      <!-- Text input-->
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="txtNIFGuardia">NIF Guardia Civil: </label>
+        <div class="col-md-4">
+          <input id="txtNIFGuardia" name="txtNIFGuardia" type="text" placeholder="" class="form-control input-md">
+
+        </div>
+      </div>
+
+      <!-- Text input-->
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="txtImporteMulta">Importe: </label>
+        <div class="col-md-4">
+          <input id="txtImporteMulta" name="txtImporteMulta" type="text" placeholder="" class="form-control input-md">
+
+        </div>
+      </div>
+
+      <!-- Text Area -->
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="txtDescripcion">Descripción: </label>
+        <div class="col-md-4">
+          <textarea id="txtDescripcion" name="txtDescripcion" rows="4" cols="45"></textarea>
+        </div>
+      </div>
+
+      <!-- Text input-->
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="txtFechaMulta">Fecha: </label>
+        <div class="col-md-4">
+          <input id="txtFechaMulta" name="txtFechaMulta" type="date" placeholder="" class="form-control input-md">
+
+        </div>
+      </div>
+
+
+      <!-- Radios Multa Tipo -->
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="radios">Tipo Multa: </label>
+        <div class="col-md-4">
+          <div class="radio">
+            <label for="rbMultaLeve">
+              <input type="radio" name="rbTipoMulta" id="rbMultaLeve" value="leve" checked="checked">
+              Leve
+            </label>
+          </div>
+          <div class="radio">
+            <label for="rbMultaGrave">
+              <input type="radio" name="rbTipoMulta" id="rbMultaGrave" value="grave">
+              Grave
+            </label>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- PROVISIONAL PARA LAS MULTAS LEVES BONIFICADAS ******************************************************************** -->
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="ckMultaBonif">Bonificada: </label>
+        <div class="col-md-4">
+          <label class="checkbox-inline" for="ckMultaBonif">
+            <input type="checkbox" name="ckMultaBonif" id="ckMultaBonif" value="true">
+            <p class="help-block">Chequee esta opción si la multa leve está bonificada</p>
+          </label>
+
+        </div>
+      </div>
+
+      <!-- PROVISIONAL PARA LAS MULTAS GRAVES  ** -->
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="txtPtosSustraidos">Puntos sustraidos: </label>
+        <div class="col-md-4">
+          <input id="txtPtosSustraidos" name="txtPtosSustraidos" type="text"
+            placeholder="Rellene esta opción sólo si la multa es grave" class="form-control input-md">
+        </div>
+      </div>
+
+
+      <!-- Button -->
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="btnAceptarRegistroMulta"></label>
+        <div class="col-md-4">
+          <input type="button" id="btnAceptarRegistroMulta" name="btnAceptarRegistroMulta" class="btn btn-danger"
+            value="Aceptar" onclick="aceptarAltaMulta()" />
+        </div>
+      </div>
+
+    </fieldset>
+  </form>
+
+
+  <!---------------------------------------------------------------------------------------------------->
+  <!-- Formulario Registro Multa CIERRA ---------------------------------------------------------------->
+  <!---------------------------------------------------------------------------------------------------->
+
+
+  <!---------------------------------------------------------------------------------------------------->
+  <!-- Formulario Pagar Multa ABRE --------------------------------------------------------------------->
+  <!---------------------------------------------------------------------------------------------------->
+
+  <form class="form-horizontal" name="formPagarMulta" id="formularios">
+    <fieldset>
+
+      <!-- Form Name -->
+      <legend>Pagar Multa</legend>
+
+      <!-- Text input-->
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="txtIdMulta">ID Multa: </label>
+        <div class="col-md-4">
+          <input id="txtIdMulta" name="txtIdMulta" type="text" placeholder="" class="form-control input-md">
+
+        </div>
+      </div>
+
+      <!-- Check Box -->
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="ckMultaPagada">Pagada: </label>
+        <div class="col-md-4">
+          <label class="checkbox-inline" for="checkboxes-0">
+            <input type="checkbox" name="ckMultaPagada" id="ckMultaPagada" value="true">
+          </label>
+        </div>
+      </div>
+
+
+      <!-- Button -->
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="btnAceptarBajaRemesa"></label>
+        <div class="col-md-4">
+          <input type="button" id="btnAceptarBajaRemesa" name="btnAceptarBajaRemesa" class="btn btn-danger"
+            value="Aceptar" onclick="aceptarPagarMulta();" />
+        </div>
+      </div>
+
+    </fieldset>
+  </form>
+
+
+  <!---------------------------------------------------------------------------------------------------->
+  <!-- Formulario Pagar Multa CIERRA ------------------------------------------------------------------->
+  <!---------------------------------------------------------------------------------------------------->
+
+  <!---------------------------------------------------------------------------------------------------->
+  <!-- Formulario Imprimir Multa ABRE ------------------------------------------------------------------->
+  <!---------------------------------------------------------------------------------------------------->
+
+  <form class="form-horizontal" name="formImprimirMulta" id="formularios">
+    <fieldset>
+
+      <!-- Form Name -->
+      <legend>Imprimir Multa</legend>
+
+      <!-- Text input-->
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="txtIdMulta">ID Multa que desea imprimir: </label>
+        <div class="col-md-4">
+          <input id="txtIdMulta" name="txtIdMulta" type="text" placeholder="" class="form-control input-md">
+
+        </div>
+      </div>
+
+      <!-- Button -->
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="btnAceptarBajaRemesa"></label>
+        <div class="col-md-4">
+          <input type="button" id="btnAceptarBajaRemesa" name="btnAceptarBajaRemesa" class="btn btn-danger"
+            value="Imprimir" onclick="botonImprimirMulta();" />
+        </div>
+      </div>
+
+    </fieldset>
+  </form>
+
+  <!---------------------------------------------------------------------------------------------------->
+  <!-- Formulario Imprimir Multa CIERRA ------------------------------------------------------------------->
+  <!---------------------------------------------------------------------------------------------------->
+
+  <!---------------------------------------------------------------------------------------------------->
+  <!-- Formulario Listados ABRE ------------------------------------------------------------------->
+  <!---------------------------------------------------------------------------------------------------->
+  <form class="form-horizontal" name="formListarMultasFecha" id="formularios">
+    <fieldset>
+
+      <!-- Form Name -->
+      <legend>Listar Multas Por Fechas</legend>
+
+      <!-- Text input-->
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="txtIdMulta">Seleccione una fecha inicial: </label>
+        <div class="col-md-4">
+          <input id="txtFechaInicio" name="txtFechaInicio" type="date" placeholder="" class="form-control input-md">
+
+        </div>
+      </div>
+
+      <!-- Text input-->
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="txtIdMulta">Seleccione una fecha final: </label>
+        <div class="col-md-4">
+          <input id="txtFechaFin" name="txtFechaFin" type="date" placeholder="" class="form-control input-md">
+
+        </div>
+      </div>
+
+      <!-- Button -->
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="btnAceptarBajaRemesa"></label>
+        <div class="col-md-4">
+          <input type="button" id="btnAceptarBajaRemesa" name="btnAceptarBajaRemesa" class="btn btn-danger"
+            value="Listar" onclick="botonListarMultasPorFechas();" />
+        </div>
+      </div>
+
+    </fieldset>
+  </form>
+
+
+  <h3 id="titulo"></h3>
+  <div class="col-md-4" id="areaListado"></div>
+
+
+  <!---------------------------------------------------------------------------------------------------->
+  <!-- Formulario Imprimir Multa CIERRA ------------------------------------------------------------------->
+  <!---------------------------------------------------------------------------------------------------->
+
+  <!-- ********************************************************************************************************************************************************************** -->
+
+  <!---------------------------------------------------------------------------------------------------->
+  <!-- SCRIPTS ----------------------------------------------------------------------------------------->
+  <!---------------------------------------------------------------------------------------------------->
+
+
+  <script type="text/javascript" src="objetos.js"></script>
+  <script type="text/javascript" src="codigo.js"></script>
+
+  <script>
+    ocultarFormularios(); 
+  </script>
+
+
+
+</body>
+
+</html>
